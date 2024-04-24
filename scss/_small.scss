@@ -1,0 +1,163 @@
+/* Prevent adjustments of font size after orientation changes.  */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    height: 100%;
+}
+  
+/*---- apply a natural box layout model to all elements -------*/
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    font-family: $defaultFont;
+    font-weight: $normalWeight;
+    color: $fontColor;
+    background-color: $backgroundColor;
+    h1{font-family: $headingFont; color: $primaryColor;}
+}
+
+
+
+
+#pageWrapper {
+    position: relative;
+    overflow-x: hidden;
+}
+.moveOver>.content{transform: translateX(-180px);}
+.content {transition: transform 500ms ease;}
+
+
+// HEADER
+#headerWrapper {background-color: #e0e5de;}
+header {
+    display: grid;
+    grid-template-columns: 69px auto 48px;
+    align-items: center;
+	padding: .5rem 2vw;
+    h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: $boldWeight;
+        padding-left: .5rem;
+    }
+    button {
+        width: 48px;
+        height: 48px;
+        margin: 0;
+        align-self: start;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        text-align: right;
+        color: #444;
+    }
+} // end header
+
+
+/* NAVIGATION */
+#navWrapper {background-color: $primaryColor;}
+nav {
+    background: $primaryColor;
+    width: 180px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(100%);
+    div {
+        display: block;
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 1.1rem;
+        background-color: $secondaryColor;
+        color: #fff;
+        
+    } // end div
+    ul{list-style-type: none; margin: 0; padding: 0;}
+    ul li a {
+        display: block;
+        padding: .9rem .5rem;
+        text-align: right;
+        border-bottom: 1px rgba(0,0,0,.25);
+        text-decoration: none;
+        color: white;
+    } // end anchors
+    ul li a:hover {
+        background-color: lighten($primaryColor, 10%);
+        color: #eee;
+    }// end hovers
+    li.active a {background-color: lighten($primaryColor, 5%)}
+
+} // end nav
+
+
+//main
+main h1 {margin-left: $gutter;}
+#cards {
+    section{
+        display: grid;
+        margin: 1rem;
+        background-color: #e0e5de;
+        border-radius: 10px;
+        grid-template-areas:
+        "name" 
+        "photo" 
+        "address" 
+        "phone";
+    }
+    img, h2, address, a {padding: 0 1rem;}
+    img{
+        grid-area: photo;
+        width: 100%;
+        height: auto;
+        margin-bottom: .5rem;
+    }
+    h2 {
+        grid-area: name;
+        font-family: $headingFont;
+        color: $primaryColor;
+    }
+    address {
+        grid-area: address;
+        font-size: 1.1rem;
+    }
+    a{
+        display: block;
+        grid-area: phone;
+        color: $backgroundColor;
+        text-decoration: none;
+        background-color: $secondaryColor;
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 1rem 3rem;
+        text-align: center;
+        &:hover {background-color: lighten($secondaryColor, 5%);}
+    }
+
+} // end cards
+
+
+
+
+
+
+
+
+
+// begin footer
+#footerWrapper {
+    background-color: #99a496;
+    padding: .8rem $gutter;
+    p {
+        margin: 0;
+        font-weight: $lightWeight;
+        color: #333;
+        text-align: center;
+    }
+}

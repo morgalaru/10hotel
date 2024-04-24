@@ -1,0 +1,46 @@
+header {
+    padding: 1.8rem $gutter;
+    h1 {font-size: 2rem;}
+}
+
+//main
+#cards {
+    section{
+        grid-template-areas:
+        "photo name" 
+        "photo address" 
+        "photo phone";
+        column-gap: $gutter;
+        padding: 1rem;
+        grid-template-columns: 250px auto;
+    }
+    img, h2, address, a {
+        padding: 0;
+    }
+    img{
+        grid-area: photo;
+        width: 100%;
+        height: auto;
+    }
+    h2 {
+        grid-area: name;
+        font-family: $headingFont;
+        color: $primaryColor;
+    }
+    address {
+        grid-area: address;
+        font-size: 1.1rem;
+    }
+    a{
+        display: block;
+        grid-area: phone;
+        color: $backgroundColor;
+        text-decoration: none;
+        background-color: $secondaryColor;
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 1rem;
+        text-align: center;
+        &:hover {background-color: lighten($secondaryColor, 5%);}
+    }
+} // end cards
